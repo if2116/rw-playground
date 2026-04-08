@@ -30,7 +30,6 @@ jobs:
           cache: npm
 
       - name: Set Base Path for Custom Domain
-        # 直接强制设置为空，确保所有静态资源从根目录 (/) 加载
         run: |
           echo "STATIC_EXPORT=1" >> "$GITHUB_ENV"
           echo "NEXT_BASE_PATH=" >> "$GITHUB_ENV"
@@ -46,9 +45,7 @@ jobs:
         run: npm run build
 
       - name: Add CNAME and NoJekyll
-        # 这一步至关重要：确保部署后自定义域名不会丢失，且 GitHub 不会拦截下划线开头的文件夹
         run: |
-          echo "agi-playground.io" > out/CNAME
           touch out/.nojekyll
 
       - name: Upload static artifact
