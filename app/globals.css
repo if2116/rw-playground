@@ -192,3 +192,15 @@
 .markdown-content ol li::marker {
   @apply text-primary font-semibold;
 }
+
+.legal-markdown h1:first-child {
+  @apply sr-only;
+}
+
+.legal-markdown h2 {
+  @apply border-t border-gray-200 pt-10;
+}
+
+.legal-markdown h2:first-of-type {
+  @apply border-t-0 pt-0;
+}
